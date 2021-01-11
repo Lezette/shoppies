@@ -2,7 +2,7 @@ import React from 'react';
 import Shoppies from './components';;
 
 const App = () => (
-    <div className="bg-gray-800 text-white h-screen">
+    <div className="bg-gray-800 text-white pb-44">
       <Shoppies />
     </div>
   );
