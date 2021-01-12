@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Snackbar, IconButton, Typography, CardMedia, CardContent, CardActions, Card } from '@material-ui/core';
 import {Close , Search} from '@material-ui/icons';
 import axios from 'axios';
+import { NominationContext } from '../context/nomination';
 
 
 const Shoppies = () => {
@@ -11,6 +12,7 @@ const Shoppies = () => {
     const [open, setOpen] = React.useState(false);
     const [loading, setLoading] = useState(false);
     const [messageInfo, setMessageInfo] = React.useState(undefined);
+    const [nominations, setNominations] = useContext(NominationContext);
     const url = process.env.REACT_APP_API_BASE_URL;
     const apikey = process.env.REACT_APP_API_KEY;
     useEffect(() => {
@@ -19,8 +21,6 @@ const Shoppies = () => {
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchTerm]);
-
-    console.log('searchList', searchList);
 
     useEffect(() => {
         if (snackPack.length && !messageInfo) {
@@ -55,7 +55,7 @@ const Shoppies = () => {
     const search = async (term) => {
         try {
             const encodedTerm = encodeURIComponent(term);
-            const response = await axios.get(`${url}?s=${encodedTerm}&apikey=${apikey}&type=movie`)
+            const response = await axios.get(`${url}?s=${encodedTerm}&apikey=${apikey}&type=movie`);
             
             if(response.data.Response === "True") {
                 setList(response.data);
