@@ -1,6 +1,6 @@
 # Shoppies
 
-A movies nomination app using OMDB api
+A movies nomination app using OMDB api runs live [here](https://shoppies-movie.netlify.app/)
 
 ## Screenshot
 
