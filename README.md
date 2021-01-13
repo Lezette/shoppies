@@ -4,7 +4,7 @@ A movies nomination app using OMDB api
 
 ## Screenshot
 
-![image](https://user-images.githubusercontent.com/42512400/104489721-dd9f7580-55c7-11eb-8ce3-d590772847d7.png)
+![image](https://user-images.githubusercontent.com/42512400/104490042-42f36680-55c8-11eb-8d5a-e83101439333.png)
 
 ## How to use 
 
