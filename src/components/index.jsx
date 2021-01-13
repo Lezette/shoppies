@@ -14,8 +14,11 @@ const Shoppies = () => {
     useEffect(() => {
         setNominationList(Object.values(nominations));
     }, [nominations]);
-    const url = process.env.REACT_APP_API_BASE_URL;
-    const apikey = process.env.REACT_APP_API_KEY;
+    // const url = process.env.REACT_APP_API_BASE_URL;
+    // const apikey = process.env.REACT_APP_API_KEY;
+
+    const url = 'https://www.omdbapi.com/';
+    const apikey = 'e6eb40f2';
 
     useEffect(() => {
         if(searchTerm !== '' && searchTerm.length > 2) {
