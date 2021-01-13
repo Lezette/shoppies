@@ -11,7 +11,6 @@ const Shoppies = () => {
     const [loading, setLoading] = useState(false);
     const [nominations, setNominations] = useContext(NominationContext);
     const [nominationList, setNominationList] = useState([]);
-    const [error, setError] = useState('');
     useEffect(() => {
         setNominationList(Object.values(nominations));
     }, [nominations]);
@@ -32,19 +31,13 @@ const Shoppies = () => {
       }
 
     const search = async (term) => {
-        try {
-            const encodedTerm = encodeURIComponent(term);
-            const response = await axios.get(`${url}?s=${encodedTerm}&apikey=${apikey}&type=movie`);
-            
-            if(response.data.Response === "True") {
-                setList(response.data);
-            }
-            setLoading(false);
-        } catch (error) {
-            if (error.toString() === 'Error: Network Error') {
-                setError('Please check your network connection and try again');
-            }
+        const encodedTerm = encodeURIComponent(term);
+        const response = await axios.get(`${url}?s=${encodedTerm}&apikey=${apikey}&type=movie`);
+        
+        if(response.data.Response === "True") {
+            setList(response.data);
         }
+        setLoading(false);
     }
 
     const handleNomination = (id, property) => {
