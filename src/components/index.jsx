@@ -54,9 +54,7 @@ const Shoppies = () => {
 
     const removeNomination = (id) => {
         const obj = nominations;
-        console.log('obj', obj);
         delete obj[id];
-        console.log('obj', obj);
         setNominations(() => {
             return {...obj}
         });
