@@ -1,9 +1,18 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 
 const NominationContext = createContext();
 
+let norminationList = {}
+if(localStorage.getItem('nominations')) {
+    norminationList = JSON.parse(localStorage.getItem('nominations'));
+}
+
 const NominationProvider = props => {
-    const [nominations, setNominations] = useState(null)
+    const [nominations, setNominations] = useState(norminationList);
+
+    useEffect(() => {
+       localStorage.setItem('nominations', JSON.stringify(nominations));
+    }, [nominations]);
 
     return (
         <NominationContext.Provider
